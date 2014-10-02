@@ -6,12 +6,13 @@
 def main():
     print "******************************************"
 
-    # open and read file
+    # open file
     f = open("orders_by_type.csv")
 
     # create dictionary with melon type (key) and number sold (value)
     melon_tallies = {"Musk": 0, "Hybrid": 0, "Watermelon": 0, "Winter": 0}
     
+    # read file
     for line in f:
         data = line.split(",")
         melon_type = data[1]
