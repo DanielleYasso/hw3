@@ -8,7 +8,10 @@ def main():
 
     # open and read file
     f = open("orders_by_type.csv")
+
+    # create dictionary with melon type (key) and number sold (value)
     melon_tallies = {"Musk": 0, "Hybrid": 0, "Watermelon": 0, "Winter": 0}
+    
     for line in f:
         data = line.split(",")
         melon_type = data[1]
@@ -17,8 +20,10 @@ def main():
         melon_tallies[melon_type] += melon_count
     f.close()
 
-    # calculate revenue based on number of melons sold
+    # create dictionary with melon type (key) and melon price (value)
     melon_prices = { "Musk": 1.15, "Hybrid": 1.30, "Watermelon": 1.75, "Winter": 4.00 }
+
+    # calculate revenue based on number of melons sold
     total_revenue = 0
     for melon_type in melon_tallies:
         price = melon_prices[melon_type]
