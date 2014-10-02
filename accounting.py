@@ -21,8 +21,7 @@ def count_melons_sold():
         melon_tallies[melon_type] += melon_count
     f.close()
 
-    # calculate melon revenue
-    calculate_revenue(melon_tallies)
+    return melon_tallies
 
 
 def calculate_revenue(melon_tallies):
@@ -75,7 +74,7 @@ def main():
     print_horizontal_rule()
 
     # count number of melons sold by type and calculate revenue
-    count_melons_sold()
+    calculate_revenue(count_melons_sold())
 
     print_horizontal_rule()
 
