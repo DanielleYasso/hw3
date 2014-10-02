@@ -3,8 +3,11 @@
 #*Someone separated sales into online sales and phone sales.
 #*Someone produced a fancy report to summarize the information for our CEO
 
-def count_melons_sold(melon_tallies):
+def count_melons_sold():
     """Counts number of melons sold by type of melon"""
+
+    # create dictionary with melon type (key) and number sold (value)
+    melon_tallies = {"Musk": 0, "Hybrid": 0, "Watermelon": 0, "Winter": 0}
 
     # open file
     f = open("orders_by_type.csv")
@@ -17,6 +20,9 @@ def count_melons_sold(melon_tallies):
         # count melons sold per type (key/value pair)
         melon_tallies[melon_type] += melon_count
     f.close()
+
+    # calculate melon revenue
+    calculate_revenue(melon_tallies)
 
 
 def calculate_revenue(melon_tallies):
@@ -60,7 +66,7 @@ def separate_sales():
 
 def print_horizontal_rule():
     """Prints a uniform horizontal rule to separate information in report"""
-    
+
     print "******************************************"
 
 
@@ -68,14 +74,8 @@ def main():
     
     print_horizontal_rule()
 
-    # create dictionary with melon type (key) and number sold (value)
-    melon_tallies = {"Musk": 0, "Hybrid": 0, "Watermelon": 0, "Winter": 0}
-
-    # count number of melons sold by type
-    count_melons_sold(melon_tallies)
-    
-    # calculate melon revenue
-    final_revenue = calculate_revenue(melon_tallies)
+    # count number of melons sold by type and calculate revenue
+    count_melons_sold()
 
     print_horizontal_rule()
 
